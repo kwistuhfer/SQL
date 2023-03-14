@@ -1,0 +1,40 @@
+/** create a stores database of items or table.
+
+at least 5 columns (id pk, food name, aisle, weight, serving size, price)
+**/
+
+CREATE TABLE hole_foods (id INTEGER PRIMARY KEY, item TEXT, aisle INTEGER, weight_ounces INTEGER, serving_size INTEGER, price INTEGER);
+
+INSERT INTO hole_foods VALUES 
+
+(1, "cilantro", 3, 2, 3, 4),
+(2, "jalapeno", 7, 6, 1, 1),
+(3, "sausage", 1, 8, 1, 6),
+(4, "pita", 12, 4, 1, 6),
+(5, "gochujang", 7, 32, 16, 8),
+(6, "cabbage", 3, 32, 5, 5),
+(7, "carrots", 3, 3, 1, 3),
+(8, "pork", 9, 95, 10, 20),
+(9, "chicken", 9, 16, 2, 12),
+(10, "lemonade", 1, 32, 6, 3),
+(11, "oil", 2, 16, 40, 10),
+(12, "chips", 6, 10, 4, 3),
+(13, "eggs", 5, 28, 12, 5),
+(14, "milk", 6, 32, 5, 4),
+(15, "bacon", 8, 20, 4, 6);
+
+-- display the database ordered by price
+SELECT * FROM hole_foods 
+ORDER BY price DESC;
+
+-- what is the average price of items in aisle 3?
+SELECT AVG(price) "average price in aisle 3" 
+FROM hole_foods
+WHERE aisle = 3;
+
+-- what are the three most expensive items?
+
+SELECT item, price FROM hole_foods
+ORDER BY price DESC
+LIMIT 3;
+
